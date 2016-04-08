@@ -1,0 +1,6 @@
+Thumbs.db
+.DS_Store
+
+# Ignore pito, moai, moaiutil, etc. for testing purposes
+util/*
+!util/apply-plugin/

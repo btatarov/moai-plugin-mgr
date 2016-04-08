@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -e
+
+# TODO: better validation
+# Verify MOAI path
+if [ ! -f "$MOAI_ROOT/bin/replace-run-scripts.sh" ]; then
+    echo "---------------------------------------------------------------------------"
+    echo "Error: \$MOAI_ROOT environment variable is not set. Use:"
+    echo "export MOAI_ROOT=/path/to/your/moai/root/directory"
+    echo " "
+    echo "...or from your Moai root directory:"
+    echo "export MOAI_ROOT=\$(pwd)"
+    echo "---------------------------------------------------------------------------"
+    exit 1
+fi
+
+cp bin/apply-plugin.sh $MOAI_ROOT/bin/
+cp -a plugins $MOAI_ROOT/
+mkdir -p $MOAI_ROOT/util/apply-plugin
+cp -a util/apply-plugin $MOAI_ROOT/util/
+
+echo "Done."

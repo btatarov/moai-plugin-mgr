@@ -1,0 +1,43 @@
+-- copy this file as plugin.lua into plugins/your-moai-plugin/
+PLUGIN = {
+
+    -- if the plugin depends on other plugins
+    depends = {
+        'moai-plugin',
+        'moai-other-plugin',
+    },
+
+    -- directory names as key
+    -- none of this is mandatory, follow your plugin structure
+    ['3rdparty'] = {
+        -- will clone plugins/myplugin/3rdparty/library-directory/
+        -- in 3rdparty/library-directory/
+        { dir = 'library-directory' },
+    },
+
+    ant = {
+        -- will clone plugins/myplugin/ant/libmoai/modules/3rdparty-lbirary.mk
+        -- in ant/libmoai/modules/
+        { file = 'libmoai/modules/3rdparty-lbirary.mk' },
+
+        -- we may have a list of files and/or directories
+        { file = 'libmoai/modules/moai-myplugin.mk' },
+    },
+
+    samples = {
+        { dir = '...' },
+    }
+
+    src = {
+        {
+            dir = 'moai-plugin-src-directory',
+            -- HACK: for better readability, useful for config files, readmes, etc.
+            file = 'someplace/myfile.txt',
+        },
+    },
+
+
+    cmake = {
+
+    },
+}
